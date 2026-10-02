@@ -1,0 +1,8 @@
+Software Developer Intern
+
+We are looking for a Computer Science student with experience in
+Python, SQL, Pandas, Git and Machine Learning.
+
+Knowledge of Docker and web development is an advantage.
+
+The candidate should have good problem-solving and communication skills.

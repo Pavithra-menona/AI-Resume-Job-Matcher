@@ -1,0 +1,19 @@
+Pavithra Menon
+
+Computer Science Engineering Student
+
+Skills:
+Python
+HTML
+CSS
+JavaScript
+Pandas
+Git
+Figma
+
+Experience:
+Web Development Intern
+
+Projects:
+Developed web applications using HTML, CSS and JavaScript.
+Worked with Python and Pandas for data analysis.

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Resume Analysis Results</h1>
+
+    <p class="subtitle">
+        Your resume has been compared with the job description.
+    </p>
+
+
+    <!-- ========================================== -->
+    <!-- MAIN SCORE BOXES -->
+    <!-- ========================================== -->
+
+    <div class="score-box">
+
+        <div class="score">
+
+            <h2>🤖 AI Match Score</h2>
+
+            <p>
+                {{ analysis["combined_score"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['combined_score'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score">
+
+            <h2>Overall Match</h2>
+
+            <p>
+                {{ analysis["overall_percentage"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['overall_percentage'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score">
+
+            <h2>Required Skills</h2>
+
+            <p>
+                {{ analysis["required_percentage"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['required_percentage'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score">
+
+            <h2>Weighted Score</h2>
+
+            <p>
+                {{ analysis["weighted_score"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['weighted_score'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score">
+
+            <h2>🧠 Semantic Similarity</h2>
+
+            <p>
+                {{ analysis["semantic_score"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['semantic_score'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score">
+
+            <h2>📋 ATS Score</h2>
+
+            <p>
+                {{ analysis["ats_score"] }}%
+            </p>
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ analysis['ats_score'] }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- WHY THIS SCORE? -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>🔍 Why This Score?</h2>
+
+        <p>
+            The AI Match Score combines three project-defined
+            components: weighted skill matching, overall skill matching,
+            and semantic similarity.
+        </p>
+
+
+        <div class="score-breakdown">
+
+
+            <!-- Weighted Skill -->
+
+            <div class="breakdown-card">
+
+                <div class="breakdown-icon">
+                    🎯
+                </div>
+
+                <div class="breakdown-content">
+
+                    <h3>
+                        Weighted Skill Score
+                    </h3>
+
+                    <p class="breakdown-score">
+                        {{ analysis["score_breakdown"]["weighted_skill_score"] }}%
+                    </p>
+
+                    <p>
+                        Weight:
+                        <strong>
+                            {{ analysis["score_breakdown"]["weighted_skill_weight"] }}%
+                        </strong>
+                    </p>
+
+                    <p>
+                        Contribution:
+                        <strong>
+                            {{ analysis["score_breakdown"]["weighted_skill_contribution"] }}
+                            points
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Overall Skill Match -->
+
+            <div class="breakdown-card">
+
+                <div class="breakdown-icon">
+                    📊
+                </div>
+
+                <div class="breakdown-content">
+
+                    <h3>
+                        Overall Skill Match
+                    </h3>
+
+                    <p class="breakdown-score">
+                        {{ analysis["score_breakdown"]["overall_skill_match"] }}%
+                    </p>
+
+                    <p>
+                        Weight:
+                        <strong>
+                            {{ analysis["score_breakdown"]["overall_skill_weight"] }}%
+                        </strong>
+                    </p>
+
+                    <p>
+                        Contribution:
+                        <strong>
+                            {{ analysis["score_breakdown"]["overall_skill_contribution"] }}
+                            points
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Semantic Similarity -->
+
+            <div class="breakdown-card">
+
+                <div class="breakdown-icon">
+                    🧠
+                </div>
+
+                <div class="breakdown-content">
+
+                    <h3>
+                        Semantic Similarity
+                    </h3>
+
+                    <p class="breakdown-score">
+                        {{ analysis["score_breakdown"]["semantic_similarity"] }}%
+                    </p>
+
+                    <p>
+                        Weight:
+                        <strong>
+                            {{ analysis["score_breakdown"]["semantic_weight"] }}%
+                        </strong>
+                    </p>
+
+                    <p>
+                        Contribution:
+                        <strong>
+                            {{ analysis["score_breakdown"]["semantic_contribution"] }}
+                            points
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Final Calculation -->
+
+        <div class="final-score-explanation">
+
+            <h3>
+                Final Score Calculation
+            </h3>
+
+            <p>
+
+                {{ analysis["score_breakdown"]["weighted_skill_contribution"] }}
+
+                +
+
+                {{ analysis["score_breakdown"]["overall_skill_contribution"] }}
+
+                +
+
+                {{ analysis["score_breakdown"]["semantic_contribution"] }}
+
+                =
+
+                <strong>
+                    {{ analysis["score_breakdown"]["final_score"] }}%
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MATCH ANALYSIS CHART -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📊 Match Analysis</h2>
+
+        <div class="chart-container">
+
+            <canvas id="matchChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- AI ANALYSIS CHART -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>🧠 AI Analysis Scores</h2>
+
+        <div class="chart-container">
+
+            <canvas id="aiChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- RESUME IMPROVEMENTS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>✨ Resume Improvement Suggestions</h2>
+
+        <p>
+            Based on the ATS analysis and the missing skills from the
+            job description, here are some suggestions to improve your resume.
+        </p>
+
+        {% for suggestion in analysis["resume_improvements"] %}
+
+            <div class="improvement-item">
+
+                <span class="improvement-icon">
+                    💡
+                </span>
+
+                <span>
+                    {{ suggestion }}
+                </span>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- ATS ANALYSIS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📋 ATS Resume Analysis</h2>
+
+        <p>
+            The ATS analysis checks whether your resume contains
+            important sections and contact information.
+        </p>
+
+        <div class="skills">
+
+            {% for check, passed in analysis["ats_checks"].items() %}
+
+                {% if passed %}
+
+                    <span class="skill matched-skill">
+                        ✅ {{ check.replace("_", " ").title() }}
+                    </span>
+
+                {% else %}
+
+                    <span class="skill missing-skill">
+                        ❌ {{ check.replace("_", " ").title() }}
+                    </span>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="recommendation">
+
+            <h3>
+                Action Words Found
+            </h3>
+
+            <p>
+                Your resume contains
+                <strong>
+                    {{ analysis["action_word_count"] }}
+                </strong>
+                action-word occurrences.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- RESUME SKILLS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📄 Your Resume Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["resume_skills"] %}
+
+                {% for skill in analysis["resume_skills"] %}
+
+                    <span class="skill resume-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No recognized skills were found in the resume.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- RESUME SKILLS BY CATEGORY -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📊 Your Skills by Category</h2>
+
+        {% for category, skills in analysis["resume_categories"].items() %}
+
+            <div class="category-box">
+
+                <h3>
+                    {{ category }}
+                </h3>
+
+                <div class="skills">
+
+                    {% for skill in skills %}
+
+                        <span class="skill resume-skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- REQUIRED SKILLS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>🎯 Required Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["required_skills"] %}
+
+                {% for skill in analysis["required_skills"] %}
+
+                    <span class="skill required-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No required skills detected.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- REQUIRED SKILLS BY CATEGORY -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>🎯 Required Skills by Category</h2>
+
+        {% for category, skills in analysis["required_categories"].items() %}
+
+            <div class="category-box">
+
+                <h3>
+                    {{ category }}
+                </h3>
+
+                <div class="skills">
+
+                    {% for skill in skills %}
+
+                        <span class="skill required-skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MATCHED REQUIRED -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>✅ Matched Required Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["matched_required"] %}
+
+                {% for skill in analysis["matched_required"] %}
+
+                    <span class="skill matched-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No required skills matched.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MISSING REQUIRED -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>❌ Missing Required Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["missing_required"] %}
+
+                {% for skill in analysis["missing_required"] %}
+
+                    <span class="skill missing-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    🎉 No required skills are missing.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- PREFERRED SKILLS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>⭐ Preferred Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["preferred_skills"] %}
+
+                {% for skill in analysis["preferred_skills"] %}
+
+                    <span class="skill preferred-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No preferred skills detected.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- PREFERRED SKILLS BY CATEGORY -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>⭐ Preferred Skills by Category</h2>
+
+        {% for category, skills in analysis["preferred_categories"].items() %}
+
+            <div class="category-box">
+
+                <h3>
+                    {{ category }}
+                </h3>
+
+                <div class="skills">
+
+                    {% for skill in skills %}
+
+                        <span class="skill preferred-skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MATCHED PREFERRED -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>👍 Matched Preferred Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["matched_preferred"] %}
+
+                {% for skill in analysis["matched_preferred"] %}
+
+                    <span class="skill matched-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No preferred skills matched.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MISSING PREFERRED -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📌 Missing Preferred Skills</h2>
+
+        <div class="skills">
+
+            {% if analysis["missing_preferred"] %}
+
+                {% for skill in analysis["missing_preferred"] %}
+
+                    <span class="skill missing-skill">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    🎉 No preferred skills are missing.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- RECOMMENDATIONS -->
+    <!-- ========================================== -->
+
+    <div class="result-section">
+
+        <h2>📚 Personalized Skill Gap Recommendations</h2>
+
+        {% if analysis["recommendations"] %}
+
+            {% for skill, recommendation in analysis["recommendations"].items() %}
+
+                <div class="recommendation">
+
+                    <h3>
+                        {{ skill }}
+                    </h3>
+
+                    <p>
+                        <strong>What to learn:</strong>
+                        {{ recommendation["what_to_learn"] }}
+                    </p>
+
+                    <p>
+                        <strong>Important topics:</strong>
+                    </p>
+
+                    <ul>
+
+                        {% for topic in recommendation["topics"] %}
+
+                            <li>
+                                {{ topic }}
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                    <p>
+                        <strong>Practice:</strong>
+                        {{ recommendation["practice"] }}
+                    </p>
+
+                    <p>
+                        <strong>Project idea:</strong>
+                        {{ recommendation["project"] }}
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="recommendation">
+
+                <h3>
+                    🎉 No Skill Gaps Detected
+                </h3>
+
+                <p>
+                    Your resume contains all the required skills
+                    detected in this job description.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- BACK BUTTON -->
+    <!-- ========================================== -->
+
+    <a href="/" class="back-button">
+        Analyze Another Resume
+    </a>
+
+</div>
+
+
+<!-- ========================================== -->
+<!-- CHARTS -->
+<!-- ========================================== -->
+
+<script>
+
+    const matchChart =
+        document.getElementById("matchChart");
+
+    new Chart(matchChart, {
+
+        type: "bar",
+
+        data: {
+
+            labels: [
+                "Required Skills",
+                "Preferred Skills",
+                "Overall Match"
+            ],
+
+            datasets: [
+
+                {
+                    label: "Match Percentage",
+
+                    data: [
+                        {{ analysis["required_percentage"] }},
+                        {{ analysis["preferred_percentage"] }},
+                        {{ analysis["overall_percentage"] }}
+                    ]
+                }
+
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: true,
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    max: 100,
+
+                    title: {
+
+                        display: true,
+
+                        text: "Percentage (%)"
+
+                    }
+
+                }
+
+            },
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+    const aiChart =
+        document.getElementById("aiChart");
+
+    new Chart(aiChart, {
+
+        type: "doughnut",
+
+        data: {
+
+            labels: [
+                "AI Match",
+                "Semantic Similarity",
+                "ATS Score"
+            ],
+
+            datasets: [
+
+                {
+
+                    data: [
+                        {{ analysis["combined_score"] }},
+                        {{ analysis["semantic_score"] }},
+                        {{ analysis["ats_score"] }}
+                    ]
+
+                }
+
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: true,
+
+            plugins: {
+
+                legend: {
+
+                    position: "bottom"
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+{
+    "Python": {
+        "category": "Programming",
+        "aliases": [
+            "python",
+            "python3",
+            "python 3"
+        ]
+    },
+
+    "Java": {
+        "category": "Programming",
+        "aliases": [
+            "java"
+        ]
+    },
+
+    "C": {
+        "category": "Programming",
+        "aliases": [
+            "c programming",
+            "c language"
+        ]
+    },
+
+    "C++": {
+        "category": "Programming",
+        "aliases": [
+            "c++",
+            "cpp",
+            "cplusplus"
+        ]
+    },
+
+    "C#": {
+        "category": "Programming",
+        "aliases": [
+            "c#",
+            "c sharp"
+        ]
+    },
+
+    "JavaScript": {
+        "category": "Web Development",
+        "aliases": [
+            "javascript",
+            "js",
+            "ecmascript"
+        ]
+    },
+
+    "TypeScript": {
+        "category": "Web Development",
+        "aliases": [
+            "typescript",
+            "ts"
+        ]
+    },
+
+    "HTML": {
+        "category": "Web Development",
+        "aliases": [
+            "html",
+            "html5"
+        ]
+    },
+
+    "CSS": {
+        "category": "Web Development",
+        "aliases": [
+            "css",
+            "css3"
+        ]
+    },
+
+    "React": {
+        "category": "Web Development",
+        "aliases": [
+            "react",
+            "reactjs",
+            "react.js"
+        ]
+    },
+
+    "Angular": {
+        "category": "Web Development",
+        "aliases": [
+            "angular",
+            "angularjs"
+        ]
+    },
+
+    "Vue": {
+        "category": "Web Development",
+        "aliases": [
+            "vue",
+            "vuejs",
+            "vue.js"
+        ]
+    },
+
+    "Django": {
+        "category": "Web Development",
+        "aliases": [
+            "django"
+        ]
+    },
+
+    "Flask": {
+        "category": "Web Development",
+        "aliases": [
+            "flask"
+        ]
+    },
+
+    "Node.js": {
+        "category": "Web Development",
+        "aliases": [
+            "node.js",
+            "nodejs",
+            "node js"
+        ]
+    },
+
+    "Express.js": {
+        "category": "Web Development",
+        "aliases": [
+            "express.js",
+            "expressjs",
+            "express js"
+        ]
+    },
+
+    "SQL": {
+        "category": "Database",
+        "aliases": [
+            "sql",
+            "mysql",
+            "postgresql",
+            "postgres",
+            "sqlite"
+        ]
+    },
+
+    "MongoDB": {
+        "category": "Database",
+        "aliases": [
+            "mongodb",
+            "mongo db"
+        ]
+    },
+
+    "Pandas": {
+        "category": "Data Science",
+        "aliases": [
+            "pandas"
+        ]
+    },
+
+    "NumPy": {
+        "category": "Data Science",
+        "aliases": [
+            "numpy"
+        ]
+    },
+
+    "Matplotlib": {
+        "category": "Data Science",
+        "aliases": [
+            "matplotlib"
+        ]
+    },
+
+    "Seaborn": {
+        "category": "Data Science",
+        "aliases": [
+            "seaborn"
+        ]
+    },
+
+    "Machine Learning": {
+        "category": "AI/ML",
+        "aliases": [
+            "machine learning",
+            "machine-learning",
+            "ml",
+            "machine learning algorithms"
+        ]
+    },
+
+    "Deep Learning": {
+        "category": "AI/ML",
+        "aliases": [
+            "deep learning",
+            "deep-learning",
+            "neural networks",
+            "neural network"
+        ]
+    },
+
+    "Natural Language Processing": {
+        "category": "AI/ML",
+        "aliases": [
+            "natural language processing",
+            "nlp"
+        ]
+    },
+
+    "Computer Vision": {
+        "category": "AI/ML",
+        "aliases": [
+            "computer vision",
+            "cv"
+        ]
+    },
+
+    "TensorFlow": {
+        "category": "AI/ML",
+        "aliases": [
+            "tensorflow"
+        ]
+    },
+
+    "PyTorch": {
+        "category": "AI/ML",
+        "aliases": [
+            "pytorch"
+        ]
+    },
+
+    "Scikit-learn": {
+        "category": "AI/ML",
+        "aliases": [
+            "scikit-learn",
+            "scikit learn",
+            "sklearn"
+        ]
+    },
+
+    "Git": {
+        "category": "Tools",
+        "aliases": [
+            "git",
+            "git version control"
+        ]
+    },
+
+    "GitHub": {
+        "category": "Tools",
+        "aliases": [
+            "github",
+            "github repositories"
+        ]
+    },
+
+    "Docker": {
+        "category": "Tools",
+        "aliases": [
+            "docker",
+            "docker containers"
+        ]
+    },
+
+    "Kubernetes": {
+        "category": "Tools",
+        "aliases": [
+            "kubernetes",
+            "k8s"
+        ]
+    },
+
+    "Figma": {
+        "category": "UI/UX",
+        "aliases": [
+            "figma"
+        ]
+    },
+
+    "AWS": {
+        "category": "Cloud",
+        "aliases": [
+            "aws",
+            "amazon web services"
+        ]
+    },
+
+    "Microsoft Azure": {
+        "category": "Cloud",
+        "aliases": [
+            "azure",
+            "microsoft azure"
+        ]
+    },
+
+    "Google Cloud": {
+        "category": "Cloud",
+        "aliases": [
+            "google cloud",
+            "gcp",
+            "google cloud platform"
+        ]
+    },
+
+    "Linux": {
+        "category": "Operating Systems",
+        "aliases": [
+            "linux",
+            "ubuntu"
+        ]
+    },
+
+    "REST API": {
+        "category": "Backend",
+        "aliases": [
+            "rest api",
+            "restful api",
+            "restful apis",
+            "rest apis"
+        ]
+    },
+
+    "Postman": {
+        "category": "Tools",
+        "aliases": [
+            "postman"
+        ]
+    }
+}
